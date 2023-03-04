@@ -1,3 +1,5 @@
 <div align ='center'>
-  # :pencil: Today I Learned
+  <div>
+    # :pencil: Today I Learned
+  </div>
  </div>
