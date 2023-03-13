@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01_example</title>
+    <style>
+      button {
+        /* background: inherit; */
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+        overflow: visible;
+        cursor: pointer;
+      }
+      body {
+        background-color: #f3f3f3;
+      }
+      .rel {
+        position: relative;
+        max-width: 1024px;
+        margin: 0 auto;
+      }
+      .alert_box {
+        width: 100%;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 30px;
+        opacity: 0;
+      }
+
+      #close {
+        padding: 5px 20px;
+        border: 2px solid skyblue;
+        border-radius: 15px;
+        background-color: #fff;
+        color: #262626;
+        font-weight: 600;
+      }
+
+      #open {
+        position: absolute;
+        top: 50%;
+        right: -7%;
+        transform: translate(-50%, -50%);
+        padding: 5px 20px;
+        border: 2px solid coral;
+        border-radius: 15px;
+        background-color: #fff;
+        color: #262626;
+        font-weight: 600;
+      }
+
+      #open:hover,
+      #close:hover {
+        background-color: coral;
+        color: #fff;
+        transition: all 0.2s;
+      }
+
+      #close:hover {
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 버튼을 누르면 alert 창이 서서히 등장하는 기능 만들어보기 -->
+    <div class="rel">
+      <div class="alert_box" id="alertBox">
+        <p>
+          open 버튼을 누르면 창이 서서히 등장했다가 close를 누르면 서서히
+          사라집니다
+        </p>
+        <button id="close" onclick="closeFade();;">close</button>
+      </div>
+      <button id="open" onclick="openFade(); open1();">open</button>
+    </div>
+
+    <script>
+      function closeFade() {
+        document.getElementById("alertBox").style.opacity = "0";
+      }
+      function openFade() {
+        document.getElementById("alertBox").style.opacity = "1";
+      }
+      function open1() {
+        document.getElementById("alertBox").style.transition = "ease 0.5s";
+      }
+    </script>
+  </body>
+</html>
