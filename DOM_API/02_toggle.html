@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toggle</title>
+    <style>
+      #toggle-button {
+        background-color: gray;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      #toggle-button.active {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="toggle-button">Toggle</button>
+    <script>
+      const button = document.getElementById("toggle-button");
+      let isToggleOn = false;
+
+      button.addEventListener("click", () => {
+        isToggleOn = !isToggleOn;
+        if (isToggleOn) {
+          // Toggle on
+          button.classList.add("active");
+          // 실행할 코드
+        } else {
+          // Toggle off
+          button.classList.remove("active");
+          // 실행할 코드
+        }
+      });
+    </script>
+  </body>
+</html>

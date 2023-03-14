@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <title>addEventListener</title>
+    <style>
+      .alert-box {
+        background: rgb(193, 193, 255);
+        color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        display: none;
+        margin-bottom: 10px;
+      }
+
+      .alert-box p {
+        display: inline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="alert-box" id="alert">
+      <p id="desc" class="title_1">알림창임</p>
+      <button id="close">닫기</button>
+    </div>
+
+    <button onclick="idOpenClose('block', '아이디를 입력하세요')">버튼1</button>
+    <button onclick="idOpenClose('none')">버튼2</button>
+
+    <script>
+      document
+        .getElementById("close")
+        .addEventListener("mouseover", function () {
+          document.getElementById("alert").style.display = "none";
+        });
+
+      function openAlert(param) {
+        document.getElementById("alert").style.display = param;
+      }
+
+      function idOpenClose(param1, param2) {
+        document.getElementById("alert").style.display = param1;
+        document.getElementsByClassName("title_1")[0].innerHTML = param2;
+      }
+    </script>
+  </body>
+</html>
