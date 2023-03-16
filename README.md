@@ -1,6 +1,6 @@
 # :pencil: Today I Learned
 
-## JavaScript 코드 페스티벌 문제 풀이!
+## :file_folder: JavaScript 코드 페스티벌 문제 풀이!
 
 ##### 1~10 번 중 10번 문제 막힘
 
