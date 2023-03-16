@@ -66,3 +66,63 @@ function decimalToBin() {
 }
 
 console.log(decimalToBin());
+
+/*
+# 문제44 : 각 자리수의 합
+
+**사용자가 입력한 양의 정수의 각 자리수의 합을 구하는 프로그램**을 만들어주세요
+
+**예를들어**
+18234 = 1+8+2+3+4 이고 정답은 18 입니다.
+3849 = 3+8+4+9 이고 정답은 24입니다.
+
+입출력
+
+입력 : 18234
+출력 : 18
+
+입력 : 3849
+출력 : 24
+*/
+
+// 1. prompt로 숫자를 차례대로 입력할 변수 생성 - userInt
+// 2. userInt는 현재 string type임이 확인
+// 3. userInt를 유사배열, number 타입으로 바꿔주는 function 생성
+// 3. sum 변수 생성
+// 4. for문 으로 돌려 sum에 저장하고 출력하는 함수 생성
+
+let userInt = prompt("숫자를 차례대로 입력하세요.");
+// console.log(typeof userInt); // string, 디버깅 과정
+
+function splitIntoArray(userNum) {
+  return String(userNum).split("").map(Number);
+}
+const arr1 = splitIntoArray(userInt);
+// console.log(arr1); // 디버깅 과정
+
+let sum = 0;
+
+function arrSum() {
+  for (let i = 0; i < arr1.length; i++) {
+    sum += arr1[i];
+  }
+  return sum;
+}
+
+console.log(arrSum());
+
+/*
+# 문제45 : getTime()함수 사용하기
+
+Date객체의 메소드 중 하나인 getTime()은 1970년 1월 1일 0시 0분 0초 이후로부터 지금까지 흐른 시간을 천분의 1초 단위(ms)로 반환합니다.
+
+이를 이용하여 **현재 연도(2023)를 출력해보세요.**
+
+*/
+
+let today = new Date();
+
+let milliseconds = today.getTime();
+let date = new Date(milliseconds);
+
+console.log(date.getFullYear());
