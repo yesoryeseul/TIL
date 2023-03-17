@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link rel="stylesheet" href="main.css" />
+    <title>modal_animation</title>
+  </head>
+  <body>
+
+    <!-- 버튼 누르면 글자가 Dark/Light 번갈아가며 바뀌게 해보자 -->
+    <nav class="navbar navbar-light">
+      <div class="container-fluid">
+        <span class="navbar-brand">JS Shop</span>
+        <span class="badge">Dark 🔄</span>
+        <button class="navbar-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- 과제: 로그인 버튼 누르면 모달창 띄우기 -->
+    <div class="black-bg">
+      <div class="white-bg">
+        <h4>로그인하세요</h4>
+        <!-- 모달창 안에 form 만들기-->
+        <form action="success.html">
+          <div class="my-3">
+            <input type="text" class="form-control" id="email">
+          </div>
+          <div class="my-3">
+            <input type="password" class="form-control" id="password">
+          </div>
+          <button type="submit" class="btn btn-primary" id="send">전송</button>
+          <button type="button" class="btn btn-danger" id="close">닫기</button>
+        </form>
+      </div>
+    </div>
+    <!-- <button id="login">로그인</button> -->
+
+    <!--
+      # one-way UI 애니메이션( A상태 -> B상태 )
+      - 1. 시작 스타일
+        2. 최종 스타일
+        => class로 만들어 놓기
+        3. 원할 때 최종 스타일로 변하라고 코드를 짬
+        4. transition 추가
+    -->
+    
+    <ul class="list-group" id="test1">
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+      <li class="list-group-item">A fourth item</li>
+      <li class="list-group-item">And a fifth one</li>
+    </ul>
+  
+    <div class="main-bg">
+      <h4>Shirts on Sales</h4>
+      <button id="login" class="btn btn-danger">로그인</button>
+    </div>
+
+
+    <script>
+      // 로그인 버튼 누르면 모달창 띄우기
+      // 자바스크립트 코드
+      /* document.getElementById("login").addEventListener("click", function () {
+        document.querySelector(".black-bg").classList.add("show-modal");
+      });
+
+      document.getElementById("close").addEventListener("click", function () {
+        document.querySelector(".black-bg").classList.remove("show-modal");
+      }); */
+
+      // 제이쿼리로 fade 효과 주어 모달창 나타내기
+      $('#login').on('click', function(){
+        $('.black-bg').addClass('show-modal');
+      });
+
+      $('#close').on('click', function(){
+        $('.black-bg').removeClass('show-modal');
+      });
+
+      /*
+        전송버튼 누르면
+        저기 input에 입력한 값이 공백이면 알림창 띄워주세요~
+
+        - input에 입력한 값
+          > document.getElementById().value;
+
+        - 공백이면
+          > ''
+
+        - 폼전송 막으려면
+          > e.preventDefault()
+          > 예제
+          document.querySelector('form').addEventListener('submit', function(e) {
+            if(document.getElementById('email').value == '') {
+              e.preventDefault();
+              alert('아이디가 공백입니다. 아이디를 입력하세요!');
+            }
+          });
+      */
+
+      // 오늘의 숙제 : 
+      // 1. 전송버튼 누를 때 아이디랑 패스워드 둘 다 공백검사하려면?
+      // 2. 전송버튼 누를 때 입력한 비번이 6자 미만이면 알림띄우기 > hint: document.getElementById('password').value.length
+      
+      document.querySelector('form').addEventListener('submit', function(e) {
+        if(document.getElementById('email').value == '') {
+          e.preventDefault();
+          alert('아이디가 공백입니다. 아이디를 입력하세요!');
+        } else if (document.getElementById('password').value == '') {
+          e.preventDefault();
+          alert('패스워드가 공백입니다. 패스워드를 입력하세요!');
+        } else if (document.getElementById('password').value.length < 6) {
+          e.preventDefault();
+          alert('비밀번호를 6자리 이상으로 입력해주세요');
+        }
+      });
+    </script>
+
+    <script>
+      /*
+        # input에서 일어나는 input 이벤트
+        - <input>에 값을 입력할 때마다 콘솔에 출력
+      */
+      // document.getElementById('email').addEventListener('input', function() {
+      //   console.log('안녕');
+      // })
+
+      /*
+        # input에서 일어나는 change 이벤트
+        - <input>에 입력한 값이 바뀌고 포커스를 잃을 때 발생
+      */
+      document.getElementById('email').addEventListener('change', function() {
+        console.log('안녕');
+      })
+    </script>
+
+    <script>
+      /* 버튼 누르면 글자가 Dark/Light 번갈아가며 바뀌게 해보자
+      -> badge 1회 클릭시 내부 글자를 Light로 변경
+      -> badge 2회 클릭시 내부 글자를 Dark로 변경
+      -> badge 3회 클릭시 내부 글자를 Light로 변경
+      ... 규칙 파악하기(홀, 짝)
+      -> bagde 클릭횟수가 홀수면 내부 글자를 Light로 변경
+      -> bagde 클릭횟수가 짝수면 내부 글자를 Dark로 변경
+      */
+
+      // 변수 -> 자료 저장소
+      // 클릭횟수 변수 선언 및 초기화
+      let count = 0;
+
+      document.querySelector('.badge').addEventListener('click', function() {
+        count++;
+        // console.log(count); // 디버깅 과정
+        if(count % 2 === 1) {
+          document.querySelector('.badge').innerHTML = "Light 🔄";
+          document.querySelector('.badge').classList.add('badge-light');
+          document.querySelector('.navbar').classList.add('nav-light');
+          document.querySelector('.navbar-brand').classList.add('navbar-brand-light');
+        } else {
+          document.querySelector('.badge').innerHTML = "Dark 🔄";
+          document.querySelector('.badge').classList.remove('badge-light');
+          document.querySelector('.navbar').classList.remove('nav-light');
+          document.querySelector('.navbar-brand').classList.remove('navbar-brand-light');
+        }
+      })
+    </script>
+  </body>
+</html>
