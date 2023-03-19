@@ -23,7 +23,7 @@
 
 */
 
-let height = prompt("반 친구들의 키를 공백으로 구분해 입력하세요");
+// let height = prompt("반 친구들의 키를 공백으로 구분해 입력하세요");
 
 // 디버깅 과정! join 잘 먹었는지
 // let heightSort = height
@@ -33,19 +33,19 @@ let height = prompt("반 친구들의 키를 공백으로 구분해 입력하세
 // console.log(height);
 // console.log(heightSort);
 
-function isSort() {
-  let heightSort = height
-    .split(" ")
-    .sort((a, b) => a - b)
-    .join(" ");
-  if (heightSort === height) {
-    return "YES";
-  } else {
-    return "NO";
-  }
-}
+// function isSort() {
+//   let heightSort = height
+//     .split(" ")
+//     .sort((a, b) => a - b)
+//     .join(" ");
+//   if (heightSort === height) {
+//     return "YES";
+//   } else {
+//     return "NO";
+//   }
+// }
 
-console.log(isSort());
+// console.log(isSort());
 
 /*
 
@@ -53,17 +53,19 @@ console.log(isSort());
 2제곱, 3제곱, 4제곱을 할 수 있는 Factory 함수를 만들려고 합니다. 
 <pass>에 코드를 작성하여 two함수를 완성하세요.
 
-one(n) 에 n에 값이 들어갈 때 그만큼 제곱을 할 수 있는 함수
-n = 2 => n*n, n => 3 n*n*n, n = 4 => n*n*n*n
-
+one(n) 에 n은 제곱값
+a(10)이 들어가는 과정이 이해가 안감
+-> 1) function one이 function two를 리턴하기 때문에 one은 결국 two함수
 Math.pow()
+일급객체 개념
 
 */
 
 function one(n) {
   function two(v) {
     //pass
-    return Math.pow(v, n);
+    const res = Math.pow(v, n);
+    return res;
   }
   return two; // ***
 }
@@ -72,11 +74,15 @@ const a = one(2);
 const b = one(3);
 const c = one(4);
 
+// 디버깅
 console.log(one(2)); // [Function: two]
 console.log(a); // [Function: two]
 console.log(b); // [Function: two]
 console.log(c); // [Function: two]
-console.log(a()); // NaN
+console.log(a()); // NaN, two()에 매개변수가 전달되지 않아 (undefined?) -> NaN
+
+// 결국 a = two(v) 가 되어 a(v)
+
 console.log(a(10)); // 10*10의 결과가 나와야함
 console.log(b(10)); // 10*10*10의 결과가 나와야함
 console.log(c(10)); // 10*10*10*10의 결과가 나와야함
