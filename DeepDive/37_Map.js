@@ -80,3 +80,79 @@ map7.set(hong, 'developer').set(na, "designer");
 console.log(map7.get(hong)) // developer
 console.log(map7.get(na)) // designer
 console.log(map7.get('key')) // undefined
+
+// 요소 존재 여부 확인 : has 메서드, 불리언 값 반환
+console.log(map7.has(hong)) // true
+console.log(map7.has('key')) // false
+
+// 요소 삭제 : delete 메서드, 불리언 값 반환
+map7.delete(hong); // key로 삭제
+console.log(map7); // Map(1) { { name: 'Na' } => 'designer' }
+
+// delete는 불리언 값을 반환하므로 set 메서드처럼 연속으로 호출할 수 없다!
+
+// 요소 일괄 삭제 : clear 메서드
+map7.clear();
+console.log(map7); // Map(0) {}
+
+/*
+  # 요소 순회
+  - Map.prototype.forEach
+  - for...of
+*/
+
+// forEach 메서드는 콜백 함수와, 그 내부에서 this로 사용될 객체(옵션)를 인수로 전달한다.
+// - 첫번째 인수: 현재 순회 중인 요소값
+// - 두번째 인수: 헌재 순회 중인 요소키
+// - 세번째 인수: 현재 순회 중인 Map 객체 자체
+
+map6.forEach((v, k , map6) => console.log(v, k, map6));
+// developer { name: 'Kim' } Map(2) {
+//   { name: 'Kim' } => 'developer',
+//   { name: 'Lee' } => 'publisher'
+// }
+// publisher { name: 'Lee' } Map(2) {
+//   { name: 'Kim' } => 'developer',
+//   { name: 'Lee' } => 'publisher'
+// }
+
+// Map 객체는 이터러블이므로 for...of문으로 순회할 수 있으며, 스프레드 문법과 배열 디스트럭처링 할당의 대상이 될 수도 있다.
+console.log(Symbol.iterator in map6); // true, Map객체는 Map.prototype의 Symbol.iterator 메서드를 상속받는 인터러블이다
+
+for(const entry of map6) {
+  console.log(entry);
+}
+// [ { name: 'Kim' }, 'developer' ]
+// [ { name: 'Lee' }, 'publisher' ]
+
+console.log([...map6]) // [ [ { name: 'Kim' }, 'developer' ], [ { name: 'Lee' }, 'publisher' ] ]
+
+const [a, b] = map6;
+console.log(a, b); // [ { name: 'Kim' }, 'developer' ] [ { name: 'Lee' }, 'publisher' ]
+
+const [c, d, e] = map5;
+console.log(c, d, e); // [ 'key5-1', 'value5-1' ] [ 'key5-2', 'value5-2' ] undefined
+
+// * Map 객체는 이터러블이면서 동시에 이터레이터인 객체를 반환하는 메서드를 제공한다
+
+// Map.prototype.keys 메서드
+// - Map 객체에서 요소키를 값으로 갖는 이터러블이면서 동시에 이터레이터인 객체를 반환한다
+const character1 = { name: 'benny' };
+const character2 = { name: 'zzik' };
+
+const map8 = new Map([[ character1, 'rabbit'],[ character2, 'hamster']]);
+for(const key of map8.keys()) {
+  console.log(key); // { name: 'benny' } { name: 'zzik' }
+}
+
+// Map.prototype.values 메서드
+// - Map 객체에서 요소값을 값으로 갖는 이터러블이면서 동시에 이터레이터인 객체를 반환한다
+for(const value of map8.values()) {
+  console.log(value); // rabbit hamster
+}
+
+// Map.prototype.entries 메서드
+// - Map 객체에서 요소값을 값으로 갖는 이터러블이면서 동시에 이터레이터인 객체를 반환한다
+for(const entry of map8.entries()) {
+  console.log(entry); // [ { name: 'benny' }, 'rabbit' ] [ { name: 'zzik' }, 'hamster' ]
+}
