@@ -67,3 +67,16 @@ console.log(map6);
 //  }
 
 // 요소 취득
+// Map 객체에서 특정 요소를 취득하려면 Map.prototype.get 메서드를 사용한다
+// get 메서드의 인수로 키를 전달하면 Map 객체에서 인수로 전달한 키를 갖는 값을 반환
+// 키를 갖는 요소가 존재하지 않으면 undefined 반환
+
+const map7 = new Map()
+const hong = { name: 'Hong' }; // 객체
+const na = { name: 'Na' }; // 객체
+
+map7.set(hong, 'developer').set(na, "designer");
+
+console.log(map7.get(hong)) // developer
+console.log(map7.get(na)) // designer
+console.log(map7.get('key')) // undefined
