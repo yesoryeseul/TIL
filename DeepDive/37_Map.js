@@ -66,3 +66,4 @@ console.log(map6);
 //    { name: 'Lee' } => 'publisher'
 //  }
 
+// 요소 취득
