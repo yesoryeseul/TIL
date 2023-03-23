@@ -17,4 +17,17 @@
     4. 렌더 트리를 기반으로 HTML 요소의 레이아웃(위치와 크기)을 계산하고 브라우저 화면에 HTML 요소를 페인팅한다
     
     
+## 요청과 응답
+
+- 브라우저에서 서버에 리소스를 요청하고 응답한 리소스를 파싱하여 렌더링 하는 과정에서
+- 서버에 요청을 전송하기 위해 브라우저는 주소창을 제공한다.
+- 브라우저의 주소창에 URL을 입력하고 엔터 키를 누르면 URL의 호스트 이름이 DNS를 통해 IP 주소로 변환되고 이 IP 주소를 갖는 서버에게 요청을 전송한다.
+  1. 브라우저의 주소창에 [https://poiemaweb.com을](https://poiemaweb.com을) 입력하고 엔터키를 누르면 **루트 요청**이 poiemaweb.com 서버로 전송한다
+  2. 루트 요청에는 명확히 리소스를 요청하는 내용이 없지만 일반적으로 서버는 루트 요청에 대해 암묵적으로 ***index.html*** 을 응답하도록 기본 설정 되어있다. 즉, [https://poiemaweb.com](https://poiemaweb.com) 는  [https://](https://poiemaweb.com)[poiemaweb.com/index.html](http://poiemaweb.com/index.html과) 과 같은 요청이다
+  3. 따라서 서버는 루트 요청에 대해 서버의 루트 폴더에 존재하는 정적 파일인 index.html을 클라이언트(브라우저)로 응답한다.
+  4. 만약 index.html이 아닌 다른 정적 파일을 서버에 요청하려면 브라우저의 주소창에 [https://](https://poiemaweb.com)[poiemaweb.com/](http://poiemaweb.com/index.html과)assets/data/data.json 과 같이 요청할 정적 파일의 경로와 파일 이름을 URI의 호스트 두에 패스(path)에 기술하여 서버에 요청한다. 그러면 서버는 루트 폴더의 assets/data 폴더 내에 있는 정적 파일 data.json을 응답할 것이다.
+  5. 반드시 브라우저의 주소창을 통해  서버에게 정적 파일만을 요청할 수 있는 것은 아니다. 자바스크립트를 통해 동적으로 서버에 정적/동적 데이터를 요청할 수도 있다.(ajax, rest api 관련)
+  6. 요청과 응답은 개발자 도구 Network 패널에서 확인할 수 있다.
+  7. 요청하지 않은 리소스들이 패널에 응답되는 이유? 
+      1. 브라우저의 렌더링 엔진이 HTML(index.html)을 파싱하는 도중에 외부 리소스를 로드하는 태그, 즉 CSS 파일을 로드하는 link 태그, 이미지 파일을 로드하는 img 태그, 자바스크립트를 로드하는 script 태그 등을 만나면 HTML의 파싱을 일시 중단하고 해당 리소스 파일을 서버로 요청하기 때문
 */
