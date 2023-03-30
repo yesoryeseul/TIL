@@ -105,16 +105,19 @@ function leader() {
   let leaderList = prompt("반장 후보를 투표하세요(입력방식)").split(" ");
   // console.log(leaderList); // 입력 객체가 leaderList라는 배열 값에 담깁
     
-  let count = [];
+  let count = {};
   leaderList.forEach((x) => { 
     count[x] = (count[x] || 0)+1; 
   });
 
-  // console.log(count); // 입력 객체가 leaderList라는 배열 값에 담깁
-  
-  let banjang = Math.max(...count);
-  console.log(banjang);
-  // let leader = count;
-  // return { leader };
+  // console.log(count); // 입력 객체가 leaderList라는 객체 값에 담깁
+  let arr = Object.values(count);
+  console.log(arr);
+  let max = Math.max(...arr);
+  console.log(max);
+
 }
-leader();
+console.log(leader());
+
+// let leader = count;
+// return { leader };
