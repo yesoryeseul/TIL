@@ -27,3 +27,19 @@ function solution(array, height) {
 
 console.log(solution([149, 180, 192, 170], 167)) // 3
 console.log(solution([180, 120, 140], 190)) // 0
+
+// for와 if 조건으로 count를 체크하는 방법
+
+function solution1(array, height) {
+  let count = 0;
+  for(let index in array) {
+    let moreThanHeight = array[index];
+    if(moreThanHeight > height) {
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log(solution1([149, 180, 192, 170], 167)) // 3
+console.log(solution1([180, 120, 140], 190)) // 0
