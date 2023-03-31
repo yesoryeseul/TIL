@@ -104,20 +104,16 @@ return { 사쿠라: 4 }
 function leader() {
   let leaderList = prompt("반장 후보를 투표하세요(입력방식)").split(" ");
   // console.log(leaderList); // 입력 객체가 leaderList라는 배열 값에 담깁
-    
+  // [ 사쿠라 사쿠라 사쿠라 사쿠라 채원 채원 윤진 윤진]
+  
   let count = {};
-  leaderList.forEach((x) => { 
-    count[x] = (count[x] || 0)+1; 
-  });
+  for(let index in leaderList) {
+    let validation = leaderList[index];
+    count[validation] = count[validation] === undefined ? 1 : count[validation] += 1;
+  }
+  let leader = Object.keys(count).reduce((a,b) => count[a] > count[b] ? a : b);
 
-  // console.log(count); // 입력 객체가 leaderList라는 객체 값에 담깁
-  let arr = Object.values(count);
-  console.log(arr);
-  let max = Math.max(...arr);
-  console.log(max);
-
+  console.log(`${leader}: ${count[leader]}`);
+  
 }
-console.log(leader());
-
-// let leader = count;
-// return { leader };
+leader();
