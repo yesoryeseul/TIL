@@ -85,6 +85,13 @@ console.log(decimalToBin());
 출력 : 24
 */
 
+// for문, 문자열을 배열로 생각하여 풀이
+let numberIn = prompt("숫자를 차례대로 입력하세요.");
+let tot = 0;
+for(let i = 0; i < numberIn.length; i++) {
+  tot += numberIn[i] % 10;
+}
+
 // 1. prompt로 숫자를 차례대로 입력할 변수 생성 - userInt
 // 2. userInt는 현재 string type임이 확인
 // 3. userInt를 유사배열, number 타입으로 바꿔주는 function 생성
@@ -126,3 +133,21 @@ let milliseconds = today.getTime();
 let date = new Date(milliseconds);
 
 console.log(date.getFullYear());
+
+/*
+# 문제46 : 각 자리수의 합 2
+
+1부터 20까지의(20을 포함) 모든 숫자를 일렬로 놓고 모든 자릿수의 총 합을 구하세요. 
+
+예를 들어 10부터 15까지의 모든 숫자를 일렬로 놓으면 101112131415이고 
+각 자리의 숫자를 더하면 21입니다. (1+0+1+1+1+2+1+3+1+4+1+5 = 21)
+*/
+
+// 1. 배열에 1부터 20까지 답기
+let arr = [];
+for(let i = 0; i < 20; i++) {
+  arr[i] = i+1;
+}
+// console.log(arr); // 디버깅 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+
+// 2. arr for로 돌려 매개변수 n밭아서 n % 10 조건에서 sum += n;
