@@ -117,3 +117,28 @@ function leader() {
   
 }
 leader();
+
+
+
+// ** 다시 풀기! 문제40 : 놀이동산에 가자
+// 인원수 제한은 없으나 제한 무게를 넘으면 무조건 다음 기구를 타야합니다.
+
+// 원범이와 친구들이 총 몇 명 탈 수 있는지 알 수 있는 프로그램을 작성
+
+// 첫번째 입력으로 제한 무게가 주어지고
+// 두번째 입력으로는 함께한 친구들의 수 n이 주어집니다.
+// 그 다음 차례대로 탑승할 친구들의 몸무게가 주어집니다. 몸무게는 무작위로 주어집니다
+
+let limitWeight = prompt("제한무게를 입력하세요");
+let n = prompt("인원수를 입력하세요");
+let count = 0;
+let total = 0;
+
+// 1. 반복문으로 friend 수만큼 몸무게 입력
+for(let i = 0; i < n; i++) {
+  // 2. 각 친구들의 몸무게를 입력하여 total 변수에 누적하여 총 합을 만들기
+  total += Number(prompt("몸무게를 각각 입력하세요"));
+  // total / limitWeight 한 값을 구하면 총 몇 명이 탈수 있는지 알 수 있다. 소수점은 내림
+  count = Math.floor(total / limitWeight)
+}
+console.log(count);
