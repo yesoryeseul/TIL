@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .box {
+        width: 100px; height: 100px;
+        background-color: antiquewhite;
+      }
+
+      .pink { color: #ff98a9; }
+      .blue { color: blue; }
+    </style>
+  </head>
+  <body>
+    <div class="box pink">Hello yeseul!</div>
+    <script>
+      const $box = document.querySelector('.box');
+
+      // .box 요소의 class 어트리뷰트 값을 취득
+      console.log($box.className); // box pink
+
+      // .box 요소의 class 어트리뷰트 값 중에서 'pink'만 'blue' 로 변경
+      $box.className = $box.className.replace('pink', 'blue');
+    </script>
+  </body>
+</html>

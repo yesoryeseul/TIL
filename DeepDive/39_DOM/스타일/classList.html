@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .box {
+        width: 100px; height: 100px;
+        background-color: antiquewhite;
+      }
+
+      .pink { color: #ff98a9; }
+      .blue { color: blue; }
+    </style>
+  </head>
+  <body>
+    <div class="box pink">Hello yeseul!</div>
+    <script>
+      const $box = document.querySelector('.box');
+
+      // .box 요소의 class 어트리뷰트 정보를 담은 DOMTokenList 객체를 취득
+      // classList가 반환하는 DOMTokenList 객체는 HTMLCollection과 NodeList와 같이
+      // 노드 객체의 상태 변화를 실시간으로 반영하는 살아 있는(live) 객체다
+      console.log($box.classList); // DOMTokenList(2) ['box', 'pink', value: 'box pink']
+
+      // .box 요소의 class 어트리뷰트 값 중에서 'pink'만 'blue' 로 변경
+      $box.classList.replace('pink', 'blue');
+      console.log($box.classList); // DOMTokenList(2) ['box', 'blue', value: 'box blue']
+
+      // add( ... className)
+      // : add 메서드는 인수로 전달한 1개 이상의 문자열을 class 어트리뷰트 값으로 추가한다.
+      $box.classList.add('yes'); // -> class="box blue yes"
+      $box.classList.add('or','yeseul'); // -> class="box blue yes or yeseul"
+
+      // remove( ... className)
+      // : remove 메서드는 인수로 전달한 1개 이상의 문자열과 일치하는 클래스를 class 어트리뷰트에서 삭제한다. 인수로 전달한 문자열과 일치하는 클래스가 class 어트리뷰트에 없으면 에러 없이 무시된다.
+      $box.classList.remove('yes') // -> class="box blue or yeseul"
+      $box.classList.remove('or', 'yeseul') // -> class="box blue"
+      $box.classList.remove('x') // class="box blue", antlehlsek.
+
+      // item(index)
+      // : 인덱스에 해당하는 클래스를 class 어트리뷰트에서 반환한다.
+      console.log($box.classList.item(0)) // box
+      console.log($box.classList.item(1)) // blue
+
+      // contains(className)
+      // : contains 메서드는 인수로 전달한 문자열과 일치하는 클래스가 class 어트리뷰트에 포함되어 있는지 확인한다.
+      console.log($box.classList.contains('box')) // true
+      console.log($box.classList.contains('blue')) // true
+
+      // replace(oldClassName, newClassName)
+      // : replace 메서드는 class 어트리튜브에서 첫 번째 인수로 전달한 문자열을 두 번째 인수로 전달한 문자열로 변경한다.
+      $box.classList.replace('blue', 'pink') // -> class="box pink"
+
+      // toggle(className[, force])
+      // : toggle 메서드는 class 어트리뷰트에 인수로 전달한 문자열과 일치하는 클래스가 존재하면 제거하고, 존재하지 않으면 추가한다.
+
+      $box.classList.toggle('yes') // -> class="box pink yes"
+      $box.classList.toggle('yes') // -> class="box pink"
+
+      // 강제로 추가, 제거할 수 있다.
+      $box.classList.toggle('yes', true) // -> class="box pink yes"
+      $box.classList.toggle('yes', false) // -> class="box pink"
+    </script>
+  </body>
+</html>

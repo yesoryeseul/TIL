@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        color: pink;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: cornsilk;
+        border: 1px solid black;
+      }
+
+      .box:before {
+        content: 'Hello ';
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">Box</div>
+    <script>
+      const $box = document.querySelector('.box');
+      
+      // .box 요소 적용된 모든 CSS 스타일을 담고 있는 CSSStyleDeclaration 객체를 취득
+      const computedStyle = window.getComputedStyle($box);
+      console.log(computedStyle); // CSSStyleDeclaration { ... }
+
+      // 임베딩 스타일
+      console.log(computedStyle.width) // 100px
+      console.log(computedStyle.height) // 100px
+      console.log(computedStyle.backgroundColor) // rgb(255, 248, 220)
+      console.log(computedStyle.border) // 1px solid rgb(0, 0, 0)
+
+      // 상속 스타일
+      console.log(computedStyle.color) // rgb(255, 192, 203)
+
+      // 기본 스타일
+      console.log(computedStyle.display) // block
+
+      // 의사 요소 :before의 스타일을 취득한다.
+      const computedStyle2 = window.getComputedStyle($box, ':before');
+
+      console.log(computedStyle2.content) // "Hello "
+    </script>
+  </body>
+</html>
