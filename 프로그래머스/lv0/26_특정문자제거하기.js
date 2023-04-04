@@ -23,10 +23,10 @@ function solution(my_string, letter) {
 }
 
 // 2. 다른 풀이, split, join
-function solution(my_string, letter) {
-  return my_string.split(letter).join('');
-  // return my_string.split(letter); // [ 'abcde', '' ] [ '', 'C', 'dbe' ]
-}
+// function solution(my_string, letter) {
+//   return my_string.split(letter).join('');
+//   // return my_string.split(letter); // [ 'abcde', '' ] [ '', 'C', 'dbe' ]
+// }
 
 // 3. 다른 풀이. 정규표현식
 // function solution(my_string, letter) {
