@@ -188,3 +188,62 @@ for(const candidate in people) {
 }
 
 console.log(newSet.size); // 5, set은 중복을 제거하여 길이를 size로 표현
+
+/*
+# 문제48 : 대소문자 바꿔서 출력하기
+
+문자열이 주어지면 대문자와 소문자를 바꿔서 출력하는 프로그램을 작성하세요.
+
+입출력
+
+입력 : AAABBBcccddd
+출력 : aaabbbCCCDDD
+*/
+// 1. 대문자인 경우 -> 소문자로 .toLowerCase()
+// 2. 소문자인 경우 -> 대문자로 .toUpperCase()
+// for 문으로 문자열 하나씩 대문자인지 소문자인지 검사
+
+function changeStn(stn) {
+  let answer = '';
+  for(let el of stn) {
+    if(el === el.toUpperCase()) {
+      // console.log(el) // A A A B B B 디버깅
+      answer += el.toLowerCase();
+    } else // console.log(el) // 디버깅 c c c d d d
+    answer += el.toUpperCase()
+  }
+  return answer;
+}
+
+console.log(changeStn('AAABBBcccddd')) // aaabbbCCCDDD
+console.log(changeStn('AaBbCcDd')) // aAbBcCdD
+
+/*
+# 문제50 : 버블정렬 구현하기
+
+버블정렬은 두 인접한 원소를 검사하여 정렬하는 방법을 말합니다.
+시간 복잡도는 느리지만 코드가 단순하기 때문에 자주 사용됩니다.
+
+아래 코드의 빈 칸을 채워 버블 정렬을 완성해 봅시다.
+*/
+function bubble(arr) {
+  let result = arr.slice(); // 원본배열 복사
+
+  for (let i = 0; i < result.length - 1; i++) {
+    for (let j = 0; j < result.length - 1; j++) {
+      if (result[j] > result[j + 1]) {
+        let temp = result[j];
+        result[j] = result[j+1];
+        result[j+1] = temp;
+      }
+    }
+  }
+  return result;
+}
+
+const items = prompt('입력해주세요.').split(' ').map((n) => {
+  return parseInt(n, 10); // ex) 3 2 9 5 6 입력 
+});
+// console.log(items) // [ 3, 2, 9, 5, 6 ] 
+
+console.log(bubble(items));  // [ 2, 3, 5, 6, 9 ]
