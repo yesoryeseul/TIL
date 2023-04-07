@@ -26,6 +26,8 @@ my_string	result
 function solution(my_string) {
   const vowel = ["a", "e", "i", "o", "u"];
   return [...my_string].filter((v) => !(vowel.includes(v))).join("");
+  // refactoring 정규표현식 캡쳐링 방법
+  // return my_string.replace(/[aeiou]/g, '');
 }
 
 console.log(solution("bus")) // bs
