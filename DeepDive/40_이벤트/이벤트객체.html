@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      html, body { height: 100%; }
+    </style>
+  </head>
+  <!-- 이벤트 핸들러 어트리뷰트 방식의 경우 event가 아닌 다른 이름으로는 이벤트 객체를 전달받지 못한다. -->
+  <body onclick="showCoords(event)">
+    <p>클릭하세요. 클릭한 곳의 좌표가 표시됩니다.</p>
+    <em class="message"></em>
+    <script>
+      const $msg = document.querySelector('.message');
+
+      // 클릭 이벤트에 의해 생성된 이벤트 객체는 이벤트 핸들러의 첫 번째 인수로 전달된다.
+      function showCoords(e) {
+        // console.log(e); // PointerEvent {isTrusted: true, pointerId: 1, width: 1, height: 1, pressure: 0, …}
+        $msg.textContent = `client: ${e.clientX}, clientY: ${e.clientY}`;
+      }
+
+      // html 내 클릭한 부분의 좌표가 표시된다.
+      // document.onclick = showCoords;
+    
+      // 이벤트 핸들러 어트리튜브 방식의 경우
+      // onclick="showCoords(event)" 어트리뷰트는 파싱되어 다음과같은 함수를 암묵적으로 생성하여 onclick 이벤트 핸들러 프로퍼티에 할당된다.
+      // function onclick(event) {
+      //   showCoords(event);
+      // }
+    </script>
+  </body>
+</html>

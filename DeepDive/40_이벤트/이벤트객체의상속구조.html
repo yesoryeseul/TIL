@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <!-- 생성자 함수 -->
+  <body>
+    <script>
+      // Event 생성자 함수를 호출하여 IVE 이벤트 타입의 Event 객체를 생성한다.
+      let e = new Event('IVE');
+      console.log(e); // Event {isTrusted: false, type: 'IVE', target: null, currentTarget: null, eventPhase: 0, …}
+      console.log(e.type); // IVE
+      console.log(e instanceof Event); // true
+      console.log(e instanceof Object); // true
+
+      // FocusEvent 생성자 함수를 호출하여 focus 이벤트 타입의 FocusEvent 객체를 생성한다.
+      e = new FocusEvent('focus');
+      console.log(e); // FocusEvent {isTrusted: false, relatedTarget: null, view: null, detail: 0, sourceCapabilities: null, …}
+
+      // MouseEvent 생성자 함수를 호출하여 MouseEvent 이벤트 타입의 MouseEvent 객체를 생성한다.
+      e = new MouseEvent('mouse');
+      console.log(e); // MouseEvent {isTrusted: false, screenX: 0, screenY: 0, clientX: 0, clientY: 0, …}
+
+      // KeyboardEvent 생성자 함수를 호출하여 KeyboardEvent 이벤트 타입의 KeyboardEvent 객체를 생성한다.
+      e = new KeyboardEvent('keyup');
+      console.log(e); // KeyboardEvent {isTrusted: false, key: '', code: '', location: 0, ctrlKey: false, …}
+
+      // InputEvent 생성자 함수를 호출하여 InputEvent 이벤트 타입의 InputEvent 객체를 생성한다.
+      e = new InputEvent('change');
+      console.log(e); // InputEvent {isTrusted: false, data: null, isComposing: false, inputType: '', dataTransfer: null, …}
+
+    </script>
+  </body>
+</html>
