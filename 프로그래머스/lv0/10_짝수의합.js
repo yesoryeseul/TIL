@@ -32,12 +32,21 @@ n이 4이므로 2 + 4 = 6을 return 합니다.
 //     .filter((v) => v % 2 === 0); // 여기서 막힘!
 // }
 function solution(n) {
-  var ar = new Array(n)
+  return new Array(n)
     .fill()
-    .map((v, i) => i + 1)
+    .map((_, i) => i + 1)
     .filter((v) => v % 2 === 0)
     .reduce((a, c) => a + c, 0);
-  return ar;
+}
+
+// refactoring 1
+// for문에 누적 연산하기
+function solution(n) {
+  let answer = 0;
+  for(let i = 0; i <= n; i++) {
+    if(i % 2 === 0) answer += i;
+  }
+  return answer;
 }
 
 console.log(solution(10));
