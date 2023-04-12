@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul id="fruits">
+      <li id="apple">Apple</li>
+      <li id="banana">Banana</li>
+      <li id="Orange">Orange</li>
+    </ul>
+
+    <ul id="ive">
+      <li id="rei">REI</li>
+      <li id="riz">RIZ</li>
+      <li id="leeseo">LEESEO</li>
+    </ul>
+    <script>
+      const $fruits = document.getElementById("fruits");
+
+      // 버블링 단계 이벤트 캐치
+
+      // ul 요소에 이벤트 핸들러를 바인딩하고 ul 요소의 하위 요소인 li 요소를 클릭하여 이벤트 발생
+
+      // #fruits 요소의 하위 요소인 li 요소를 클릭한 경우
+      $fruits.addEventListener("click", (e) => {
+        console.log(`이벤트 단계: ${e.eventPhase}`); // 3: 버블링 단계
+        console.log(`이벤트 타깃: ${e.target}`); // [object HTMLLIElement] -> li 요소
+        console.log(`커런트 타깃: ${e.currentTarget}`); // [object HTMLUListElement] -> ul 요소
+      });
+
+      // 캡처링 단계 이벤트 캐치
+      const $ive = document.getElementById("ive");
+      const $rei = document.getElementById("rei");
+
+      $ive.addEventListener(
+        "click",
+        (e) => {
+          console.log(`이벤트 단계: ${e.eventPhase}`); // 1: 캡처링 단계
+          console.log(`이벤트 타깃: ${e.target}`); // [object HTMLLIElement] -> li 요소
+          console.log(`커런트 타깃: ${e.currentTarget}`); // [object HTMLUListElement] -> ul 요소
+        },
+        true
+      );
+
+      // 타깃 단계의 이벤트를 캐치
+      $rei.addEventListener("click", (e) => {
+        console.log(`이벤트 단계: ${e.eventPhase}`); // 2: 타깃 단계
+        console.log(`이벤트 타깃: ${e.target}`); // [object HTMLLIElement] -> li 요소
+        console.log(`커런트 타깃: ${e.currentTarget}`); // [object HTMLLIElement] -> ul 요소
+      });
+
+      $ive.addEventListener("click", (e) => {
+        console.log(`이벤트 단계: ${e.eventPhase}`); // 3: 버블링 단계
+        console.log(`이벤트 타깃: ${e.target}`); // [object HTMLLIElement] -> li 요소
+        console.log(`커런트 타깃: ${e.currentTarget}`); // [object HTMLLIElement] -> ul 요소
+      });
+    </script>
+  </body>
+</html>
