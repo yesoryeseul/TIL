@@ -27,9 +27,11 @@ my_string	      result
 */
 
 function solution(my_string) {
-  var answer = 0;
-  return answer;
+  return my_string
+    .match(/\d/g)
+    .map((v) => v * 1)
+    .reduce((a, c) => a + c);
 }
 
-console.log(solution("aAb1B2cC34oOp")) // 10
-console.log(solution("1a2b3c4d123")) // 16
+console.log(solution("aAb1B2cC34oOp")); // 10
+console.log(solution("1a2b3c4d123")); // 16
