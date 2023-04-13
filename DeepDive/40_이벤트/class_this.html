@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <button class="btn1">0</button>
+  <button class="btn2">0</button>
+  <script>
+    class App {
+      constructor() {
+        this.$button1 = document.querySelector('.btn1');
+        this.$button2 = document.querySelector('.btn2');
+        this.count1 = 0;
+        this.count2 = 0;
+
+        // increase 메서드를 이벤트 핸들러로 등록
+        // this.$button.onclick = this.increase; // Uncaught TypeError: Cannot set textContent of undefined
+
+        // increase 메서드 내부의 this가 인스턴스를 가리키도록 한다.
+        this.$button1.onclick = this.increase.bind(this);
+
+
+        // 화살표 함수인 decrease를 이벤트 핸들러로 등록
+        this.$button2.onclick = this.decrease;
+      }
+
+      increase() {
+        this.$button1.textContent = ++this.count1;
+      }
+
+
+      decrease = () => this.$button2.textContent = --this.count2;
+    }
+
+    new App();
+  </script>
+</body>
+</html>
