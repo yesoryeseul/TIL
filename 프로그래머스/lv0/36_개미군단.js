@@ -37,7 +37,21 @@ ex) 23 / 5 = 4.6 을 floor값으로 Math.floor(23/5) = 4 를 카운트
 */
 
 function solution(hp) {
-  // 다시풀어보기
+  // 다시풀어보기 24마리일때를 가정해보자
+  let a = Math.floor(hp / 5); // 필요한 장군개미 갯수 4
+  // 남은 hp 4가 남거든?
+  let b = Math.floor((hp - 5 * a) / 3); // 필요한 병정개미 갯수 1마리
+
+  // 남은 hp 1이 남거든?
+  let c = hp - (a*5 + b*3); // 일개미 1마리 필요
+
+  return a+b+c;
+}
+
+// refactoring 다른 사람의 풀이 나머지 연산자를 이용해보자!
+
+function solution(hp) {
+  return Math.floor(hp / 5) + Math.floor(hp % 5) / 3 + Math.floor(hp % 5) % 3;
 }
 
 console.log(solution(23)) // 5
