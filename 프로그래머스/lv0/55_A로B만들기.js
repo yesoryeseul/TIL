@@ -19,6 +19,8 @@ before	after	result
 */
 
 function solution(before, after) {
-  var answer = 0;
-  return answer;
+  return [...before].sort().join("") === [...after].sort().join("") ? 1 : 0;
 }
+
+console.log(solution("olleh", "hello"));
+console.log(solution("allpe", "apple"));
