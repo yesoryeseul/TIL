@@ -19,7 +19,7 @@ my_string	letter	result
 
 // 1. replaceAll
 function solution(my_string, letter) {
-  return my_string.replaceAll(letter, '');
+  return my_string.replaceAll(letter, "");
 }
 
 // 2. 다른 풀이, split, join
@@ -34,5 +34,11 @@ function solution(my_string, letter) {
 //   return my_string.replace(reg, '');
 // }
 
-console.log(solution("abcdef", "f")) // abcde
-console.log(solution("BCBdbe", "B")) // Cdbe
+console.log(solution("abcdef", "f")); // abcde
+console.log(solution("BCBdbe", "B")); // Cdbe
+
+// 정규표현식
+console.log("abcdef".replace(/f/g, ""));
+console.log("a3bcd2ef1".replace(/[123]/g, "")); // 123 숫자 지우기
+console.log("a3bcd245ef1".replace(/[1-9]/g, "")); // 숫자 지우기
+console.log("a3bcd245ef1".replace(/[a-z]/g, "")); // 소문자 지우기

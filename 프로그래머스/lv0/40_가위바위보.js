@@ -24,11 +24,11 @@ rsp	result
 */
 
 function solution(rsp) {
-  let answer = '';
-  for(let i = 0; i < rsp.length; i++) {
-    if(rsp[i] === "2") answer += "0";
-    else if(rsp[i] === "0") answer += "5";
-    else if(rsp[i] === "5") answer += "2";
+  let answer = "";
+  for (let i = 0; i < rsp.length; i++) {
+    if (rsp[i] === "2") answer += "0";
+    else if (rsp[i] === "0") answer += "5";
+    else if (rsp[i] === "5") answer += "2";
   }
   return answer;
 }
@@ -39,17 +39,20 @@ function solution(rsp) {
   let arr = {
     2: 0,
     0: 5,
-    5: 2
+    5: 2,
   };
-  return [...rsp].map(v => arr[v]).join("");
+  return [...rsp].map((v) => arr[v]).join("");
 }
 
 // refactoring 2(다른 사람 풀이)
 // split으로 배열 만들기 > 조건 설정 > 결과 > join으로 합쳐 문자열로 만들기
 // 삼항 연산자
 function solution(rsp) {
-  return rsp.split("").map((v) => v === "2" ? 0 : (v === "0" ? 5 : 2)).join("");
+  return rsp
+    .split("")
+    .map((v) => (v === "2" ? 0 : v === "0" ? 5 : 2))
+    .join("");
 }
 
-console.log(solution("2")) // "0"
-console.log(solution("205")) // "052"
+console.log(solution("2")); // "0"
+console.log(solution("205")); // "052"

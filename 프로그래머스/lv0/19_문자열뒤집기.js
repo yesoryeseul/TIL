@@ -1,4 +1,3 @@
-
 /*
 문자열 뒤집기
 
@@ -33,6 +32,9 @@ function solution(my_string) {
   //   stn += my_string[i];
   // }
   // return stn;
+
+  // Array.from 사용하기
+  // return Array.from(my_string).reverse().join("");
 }
 
 console.log(solution("jaron")); // noraj

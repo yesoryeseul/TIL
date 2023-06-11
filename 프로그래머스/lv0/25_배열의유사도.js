@@ -52,5 +52,12 @@ function solution(s1, s2) {
 //   return answer;
 // }
 
-console.log(solution(["a", "b", "c"], ["com", "b", "d", "p", "c"])) // 2
-console.log(solution(["n", "omg"], ["m", "dot"])) // 0
+// 교집합 사용하기
+// function solution(s1, s2) {
+//   return s1.length + s2.length - new Set([...s1, ...s2]).size;
+// }
+
+// new Set([...s1, ...s2]) => ["a", "com", "b", "d", "p", "c"], 중복된 요소 제거
+
+console.log(solution(["a", "b", "c"], ["com", "b", "d", "p", "c"])); // 2
+console.log(solution(["n", "omg"], ["m", "dot"])); // 0
