@@ -9,6 +9,13 @@ numbers	direction	result
 [4, 455, 6, 4, -1, 45, 6]	"left"	[455, 6, 4, -1, 45, 6, 4]
 */
 
+/*
+right일 경우 마지막 배열 값 pop하여 앞에 넣어주기
+  -> pop() 메서드는 배열에서 마지막 요소를 제거하고 그 요소를 반환
+left일 경우 첫번째 배열값 shift하여 뒤에 넣어주기
+  -> shift() 메서드는 배열에서 첫 번째 요소를 제거하고, 제거된 요소를 반환
+*/
+
 function solution(numbers, direction) {
   if (direction === "right") {
     // numbers.unshift(numbers.pop());
