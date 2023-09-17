@@ -28,7 +28,10 @@ reduce acc + cur 로 누적하고 다름 부호값을 찾고 연산하는 과정
 값을 누적하고 + or -
 */
 
-// 다시 풀어보기68.
+function solution(my_string) {
+  const strArr = my_string.split(" ");
+  const logic = strArr.map((v, i) => (i === 1 ? v : Number(v)));
+}
 
 console.log(solution("3 + 4 - 2")); // 5
 console.log(solution("3 - 4")); // -1
