@@ -30,6 +30,16 @@ function solution(arr, queries) {
   return arr;
 }
 
+function solution(arr, queries) {
+  queries.map((query) => {
+    for (let i = query[0]; i <= query[1]; i++) {
+      arr[i] += 1;
+    }
+  });
+
+  return arr;
+}
+
 console.log(
   solution(
     [0, 1, 2, 3, 4],
