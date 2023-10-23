@@ -19,7 +19,7 @@ num	total	result
 Math.floor(num / 2)
 Math.ceil(total / num - Math.floor(num / 2))
 
-2. 초기값을 +1씩 증가하는 배열 생성, length는 num
+2. 초기값에서 i만큼 증가하는 배열 생성, length는 num
 */
 
 function solution(num, total) {
