@@ -28,11 +28,9 @@ numbers	result
 function solution(numbers) {
   let max = numbers[0] * numbers[1];
   for (let i = 0; i < numbers.length - 1; i++) {
-    const first = numbers[i];
     for (let j = i + 1; j < numbers.length; j++) {
-      const second = numbers[j];
-
-      if (max < first * second) max = first * second;
+      let sum = numbers[i] * numbers[j];
+      if (max < sum) max = sum;
     }
   }
   return max;
@@ -41,3 +39,11 @@ function solution(numbers) {
 console.log(solution([1, 2, -3, 4, -5])); // 15
 console.log(solution([0, -31, 24, 10, 1, 9])); // 240
 console.log(solution([10, 20, 30, 5, 5, 20, 5])); // 600
+
+// 다른 사람의 풀이
+function solution(numbers) {
+  const N = numbers.length;
+
+  numbers.sort((a, b) => a - b); // 오름차순 정렬
+  return Math.max(numbers[N - 1] * numbers[N - 2], numbers[0] * numbers[1]);
+}
