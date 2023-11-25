@@ -4,6 +4,9 @@ function solution(numbers, n) {
         if(answer <= n) answer += val;
     }
     return answer;
+    
+    // 다른 풀이
+    return numbers.reduce((a, c) => (a <= n) ? a + c : a);
 }
 
 /*
