@@ -7,6 +7,9 @@ function solution(A,B){
         answer += A[i] * B[i];
     }
     return answer;
+    
+    // 다른 풀이
+    // return A.reduce((total, val, idx) => total + val * B[idx], 0)
 }
 
 /*
